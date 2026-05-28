@@ -1,0 +1,7 @@
+title: Josh Green
+description: Web developer, 3D printing, AI tinkerer
+url: "https://joshgreen-dev.github.io"
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
