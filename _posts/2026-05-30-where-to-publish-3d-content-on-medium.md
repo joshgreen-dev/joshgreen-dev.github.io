@@ -12,6 +12,8 @@ There's no "3D Printing Weekly" publication with 500K followers waiting for your
 
 I spent a couple weeks mapping every Medium publication that either explicitly covers 3D topics or has a track record of publishing 3D-related articles. Here's what I found.
 
+![Where to publish 3D content on Medium](/images/3d-pubs/hero-3d-content-publishing.png)
+
 ## The Big Tech Publications
 
 These are the high-follower publications where 3D content fits if you frame it right. They don't want "look at my print" — they want technical insights developers can use.
@@ -38,6 +40,8 @@ Three.js is explicitly listed as a topic they cover. They publish tool roundups 
 
 DevOps and cloud-leaning, but they publish deep technical dives. A piece about running 3D rendering pipelines, WebGL optimization, or browser-based CAD would fit.
 
+![Medium publications ranked by followers](/images/3d-pubs/infographic-medium-publications-ranked.png)
+
 ## Design Publications
 
 ### UX Collective — 483K followers
@@ -58,6 +62,8 @@ The only dedicated 3D printing publication I found on Medium. It's a company blo
 
 Samsung's browser team publishes about WebXR, WebGL, and immersive web technologies. If your article is about 3D on the mobile web specifically, this is a unique fit.
 
+![Which publication should you choose?](/images/3d-pubs/infographic-publication-decision-flowchart.png)
+
 ## General Publications Worth Knowing
 
 ### The Startup (SWLH) — 739K followers
@@ -71,6 +77,8 @@ Very welcoming to new writers. Broad tech coverage. Good for getting your first 
 ### Dev Genius — 10K followers
 
 Active, publishes daily, accepts all skill levels. Good for developer tool articles, self-hosted alternatives, and web development tutorials with a 3D angle.
+
+![Tag strategy for 3D content](/images/3d-pubs/infographic-tag-strategy-pie.png)
 
 ## Tag Strategy for 3D Content on Medium
 
