@@ -38,6 +38,8 @@ I assumed quantization was the lever, so I tested Q4, Q6, and Q8. They landed wi
 
 GLM-4.7-Flash uses Multi-head Latent Attention (MLA), the same trick the DeepSeek models use. MLA is clever. It compresses the key/value cache into a small latent, so in theory the memory footprint at long context stays tiny. The catch is that it needs a runtime that actually implements MLA. If the runtime does not recognize it, the model falls back to plain multi-head attention, and the KV cache balloons to roughly seventeen times its intended size. That is the cliff. The cache grows so fast with context that you run out of memory and the per-token work explodes.
 
+![How the runtime decides the KV cache size: a real MLA path keeps it tiny, the MHA fallback blows it up about 17 times](/images/glm-flash-fix/diagram-kv-cache.png)
+
 ![GPU memory climbs into the ceiling as the KV cache balloons](/images/glm-flash-fix/memory-ceiling.png)
 
 There is a second problem stacked on top. On AMD integrated graphics, the Vulkan backend has no flash-attention kernel. Flash attention exists on some NVIDIA drivers and basically nowhere else, so on this 780M the attention work either runs unfused or quietly spills to the CPU. For a model where attention is the expensive part, that is brutal.
@@ -58,9 +60,13 @@ It loaded the model correctly, as a DeepSeek-class architecture, which is what i
 | behavior with context | collapses to ~1 tok/s | holds |
 | 128K context | out of memory | fits (small cache) |
 
+![The same model on two runtimes: Ollama on the Vulkan iGPU collapses, while ik_llama.cpp with a real MLA path holds](/images/glm-flash-fix/diagram-runtimes.png)
+
 So a rough 40 percent bump at short context, and far more importantly, the speed stops falling apart as the context fills. A tuned community build of the same model nudged it to 11.4 tok/s. I did not even need to re-download anything. The build I already had works fine once the runtime stops mishandling the attention.
 
 ## What I would tell someone hitting this
+
+![A flowchart for diagnosing it: slow and collapsing with context, a smaller quant does not help, the runtime does not implement MLA so it falls back to MHA and the cache blows up, and the fix is ik_llama.cpp with the MLA path on](/images/glm-flash-fix/diagram-diagnosis.png)
 
 1. If a new model is mysteriously slow and collapses with context, check whether it uses MLA. The huge KV cache is the tell.
 2. Quantization will not save you here. If Q4 and Q8 run at the same speed, you are attention-bound, not memory-bound, and a smaller quant just frees up disk.
