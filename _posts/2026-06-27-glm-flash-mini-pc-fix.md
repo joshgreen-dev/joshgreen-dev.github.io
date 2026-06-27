@@ -6,6 +6,8 @@ tags: [ai, llm, minipc, selfhosted]
 description: "GLM-4.7-Flash ran at a third of the speed I expected on a 780M iGPU and fell apart at long context. The cause was the attention design, not the weights. A runtime swap fixed it."
 ---
 
+![Watercolour illustration: a tired, unimpressed me on the left, my mini-PC on the right with the GLM logo rising out of it](/images/glm-flash-fix/hero.jpg)
+
 I run most of my local models on the same little box I keep writing about: a UM790Pro with a Ryzen 9 7940HS, the Radeon 780M iGPU, and 96 GB of DDR5. It is not a workstation. It sips power and sits on a shelf, and for the models I actually care about, sparse mixture-of-experts with a few billion active params, it has been surprisingly capable. My daily 30B-class A3B model runs around 18 tokens a second on it.
 
 So when GLM-4.7-Flash showed up (30B total, 3B active, strong coding scores) I expected the same ballpark. I got a third of it. Here is what went wrong, why, and the one change that made it usable.
