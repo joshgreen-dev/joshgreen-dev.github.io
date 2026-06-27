@@ -1,0 +1,168 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content='width=device-width,initial-scale=1'>
+<meta name=robots content='noindex'>
+<title>Chart style experiments</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--fg:#e6edf3;--muted:#8b949e;--line:#21262d;--accent:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:30px;margin:0 0 8px}
+.lede{color:var(--muted);max-width:680px;margin:0 0 10px}
+.note{color:var(--muted);font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:18px 0 36px}
+section{margin:0 0 56px}
+h2{font-size:22px;border-bottom:1px solid var(--line);padding-bottom:8px;margin:0 0 6px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.row{margin:0 0 26px}
+.theme{font-weight:600;color:var(--accent);margin:0 0 8px;font-size:15px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+figcaption{color:var(--muted);font-size:12px;padding:7px 10px;border-top:1px solid var(--line)}
+a{color:var(--accent)}
+@media(max-width:640px){.pair{grid-template-columns:1fr}}
+</style></head><body><div class=wrap>
+<h1>Chart style experiments</h1>
+<p class=lede>I ran my benchmark charts through two open image-edit models to see if they could redesign the flat solid fills into something with more texture. Four looks each, two models.</p>
+<p class=note>These are decorative restyles, not the real figures. The edit models repaint the image, so some numbers, labels and axis text get garbled or changed. For anything published I would keep the clean charts and only borrow a texture idea from these.</p>
+<section>
+<h2>Speed collapses with context</h2>
+<p class=sub>Left: FLUX.1 Kontext &nbsp;&bull;&nbsp; Right: FireRed Image Edit</p>
+<div class=row>
+<div class=theme>Papier-mache</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/collapse__papermache.png' alt='Speed collapses with context Papier-mache FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/collapse__papermache.png' alt='Speed collapses with context Papier-mache FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Pastel watercolour</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/collapse__watercolor.png' alt='Speed collapses with context Pastel watercolour FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/collapse__watercolor.png' alt='Speed collapses with context Pastel watercolour FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Circuit board</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/collapse__pcb.png' alt='Speed collapses with context Circuit board FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/collapse__pcb.png' alt='Speed collapses with context Circuit board FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Matrix</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/collapse__matrix.png' alt='Speed collapses with context Matrix FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/collapse__matrix.png' alt='Speed collapses with context Matrix FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+</section>
+<section>
+<h2>KV cache vs the memory ceiling</h2>
+<p class=sub>Left: FLUX.1 Kontext &nbsp;&bull;&nbsp; Right: FireRed Image Edit</p>
+<div class=row>
+<div class=theme>Papier-mache</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/memory__papermache.png' alt='KV cache vs the memory ceiling Papier-mache FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/memory__papermache.png' alt='KV cache vs the memory ceiling Papier-mache FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Pastel watercolour</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/memory__watercolor.png' alt='KV cache vs the memory ceiling Pastel watercolour FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/memory__watercolor.png' alt='KV cache vs the memory ceiling Pastel watercolour FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Circuit board</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/memory__pcb.png' alt='KV cache vs the memory ceiling Circuit board FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/memory__pcb.png' alt='KV cache vs the memory ceiling Circuit board FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Matrix</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/memory__matrix.png' alt='KV cache vs the memory ceiling Matrix FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/memory__matrix.png' alt='KV cache vs the memory ceiling Matrix FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+</section>
+<section>
+<h2>Quantization barely matters</h2>
+<p class=sub>Left: FLUX.1 Kontext &nbsp;&bull;&nbsp; Right: FireRed Image Edit</p>
+<div class=row>
+<div class=theme>Papier-mache</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/quant__papermache.png' alt='Quantization barely matters Papier-mache FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/quant__papermache.png' alt='Quantization barely matters Papier-mache FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Pastel watercolour</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/quant__watercolor.png' alt='Quantization barely matters Pastel watercolour FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/quant__watercolor.png' alt='Quantization barely matters Pastel watercolour FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Circuit board</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/quant__pcb.png' alt='Quantization barely matters Circuit board FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/quant__pcb.png' alt='Quantization barely matters Circuit board FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Matrix</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/quant__matrix.png' alt='Quantization barely matters Matrix FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/quant__matrix.png' alt='Quantization barely matters Matrix FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+</section>
+<section>
+<h2>Time to first token explodes</h2>
+<p class=sub>Left: FLUX.1 Kontext &nbsp;&bull;&nbsp; Right: FireRed Image Edit</p>
+<div class=row>
+<div class=theme>Papier-mache</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/ttft__papermache.png' alt='Time to first token explodes Papier-mache FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/ttft__papermache.png' alt='Time to first token explodes Papier-mache FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Pastel watercolour</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/ttft__watercolor.png' alt='Time to first token explodes Pastel watercolour FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/ttft__watercolor.png' alt='Time to first token explodes Pastel watercolour FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Circuit board</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/ttft__pcb.png' alt='Time to first token explodes Circuit board FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/ttft__pcb.png' alt='Time to first token explodes Circuit board FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Matrix</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/ttft__matrix.png' alt='Time to first token explodes Matrix FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/ttft__matrix.png' alt='Time to first token explodes Matrix FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+</section>
+<section>
+<h2>Same size, different speed</h2>
+<p class=sub>Left: FLUX.1 Kontext &nbsp;&bull;&nbsp; Right: FireRed Image Edit</p>
+<div class=row>
+<div class=theme>Papier-mache</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/fourway__papermache.png' alt='Same size, different speed Papier-mache FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/fourway__papermache.png' alt='Same size, different speed Papier-mache FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Pastel watercolour</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/fourway__watercolor.png' alt='Same size, different speed Pastel watercolour FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/fourway__watercolor.png' alt='Same size, different speed Pastel watercolour FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Circuit board</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/fourway__pcb.png' alt='Same size, different speed Circuit board FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/fourway__pcb.png' alt='Same size, different speed Circuit board FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+<div class=row>
+<div class=theme>Matrix</div>
+<div class=pair>
+<figure><img loading=lazy src='/images/chart-styles/kontext/fourway__matrix.png' alt='Same size, different speed Matrix FLUX.1 Kontext'><figcaption>FLUX.1 Kontext</figcaption></figure>
+<figure><img loading=lazy src='/images/chart-styles/firered/fourway__matrix.png' alt='Same size, different speed Matrix FireRed Image Edit'><figcaption>FireRed Image Edit</figcaption></figure>
+</div></div>
+</section>
+</div></body></html>
